@@ -75,24 +75,24 @@ def Hausdorff_Matrix(A,B,data=1):
     kernel = np.ones((3,3))
     Ae = cv2.erode(A,kernel,iterations = 1)
     A=A-Ae
-    print(np.min(A))
+#    print(np.min(A))
     Be = cv2.erode(B,kernel,iterations = 1)
     B=B-Be
-    plt.imshow(B)
-    print(np.min(B))
+#    plt.imshow(B)
+#    print(np.min(B))
     A_corr=np.argwhere(A==data)
     B_corr=np.argwhere(B==data)
 #    print(A_corr)
 #    print(B_corr)
     yc=np.diagonal(np.dot(A_corr,A_corr.T))[np.newaxis].T
     xc=np.diagonal(np.dot(B_corr,B_corr.T))[np.newaxis].T
-    print(xc.shape)
-    print(yc.shape)
+#    print(xc.shape)
+#    print(yc.shape)
     Z=np.dot(A_corr,B_corr.T)
-    print(Z.shape)
+#    print(Z.shape)
     HD_matrix=yc-2*Z
     HD_matrix=np.sqrt(HD_matrix+xc.T)
-    print(HD_matrix.shape)
+#    print(HD_matrix.shape)
     return HD_matrix
 
 def HausdorffDist(A,B,data=1):
